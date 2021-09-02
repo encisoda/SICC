@@ -85,6 +85,7 @@ padding: 0 1rem;
 height: 100%;
 cursor: pointer;
 
+
 &.active{ 
     border-bottom: 3px solid #01bf71;
 }
@@ -117,4 +118,10 @@ text-decoration: none;
     background: #fff;
     color: #010606;
 }
+`;
+
+export const Img = styled.img`
+width: 10%;
+
+
 `;
