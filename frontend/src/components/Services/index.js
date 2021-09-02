@@ -1,38 +1,44 @@
 import React from 'react'
-import { ServicesContainer, 
-ServicesH1,
-ServicesWrapper,
-ServicesCard,
-ServicesIcon,
-ServicesH2,
-ServicesP} from './ServicesElements'
-import Icon1 from '../../images/img.svg';
-import Icon2 from '../../images/img.svg';
-import Icon3 from '../../images/img.svg';
+import {
+    ServicesContainer,
+    ServicesH1,
+    ServicesWrapper,
+    ServicesCard,
+    ServicesIcon,
+    ServicesH2,
+    ServicesP
+} from './ServicesElements'
+import Codigo from '../../images/codigo.svg';
+
 
 const Services = () => {
     return (
         <ServicesContainer id="services">
-            <ServicesH1>Services</ServicesH1>
+            <ServicesH1>Servicios</ServicesH1>
             <ServicesWrapper>
                 <ServicesCard>
-                    <ServicesIcon src={Icon1}/>
-                    <ServicesH2>Reduce Expesnes</ServicesH2>
-                    <ServicesP>nas texto</ServicesP>
+                    <ServicesIcon src={Codigo} />
+                    <ServicesH2>Totalmente responsive</ServicesH2>
+                    <ServicesP>vistas adaptadas a todos los dispositivos</ServicesP>
                 </ServicesCard>
                 <ServicesCard>
-                    <ServicesIcon src={Icon2}/>
-                    <ServicesH2>Reduce Expesnes</ServicesH2>
-                    <ServicesP>nas texto</ServicesP>
+                    <ServicesIcon src={Codigo} />
+                    <ServicesH2>Estilo moderno</ServicesH2>
+                    <ServicesP>de productividad moderna y de facil acceso</ServicesP>
                 </ServicesCard>
                 <ServicesCard>
-                    <ServicesIcon src={Icon3}/>
-                    <ServicesH2>Reduce Expesnes</ServicesH2>
-                    <ServicesP>mas texto</ServicesP>
+                    <ServicesIcon src={Codigo} />
+                    <ServicesH2>Personalizable</ServicesH2>
+                    <ServicesP>adaptable a la necesidad de cada cliente</ServicesP>
+                </ServicesCard>
+                <ServicesCard>
+                    <ServicesIcon src={Codigo} />
+                    <ServicesH2>Sistemas de acceso web</ServicesH2>
+                    <ServicesP>diseño con tecnologia confiable y segura</ServicesP>
                 </ServicesCard>
             </ServicesWrapper>
         </ServicesContainer>
     )
 }
 
-export default Services
+export default Services;

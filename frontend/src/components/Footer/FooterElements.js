@@ -50,20 +50,26 @@ color: #fff;
 }
 `;
 
-// export const FooterLinkTitle = styled.h1`
-// font-size: 14px;
-// margin-bottom: 16px;
-// `;
+export const FooterLinkTitle = styled.h1`
+font-size: 14px;
+margin-bottom: 16px;
+`;
+
+export const Img = styled.img`
+width: 6%;
+
+
+`;
 
 export const FooterLink = styled(Link)`
 color: #fff;
 text-decoration: none;
-margin-bottom: 0%.5rem;
+margin-bottom: 0.5rem;
 font-size: 14px;
 
 &:hover{
     color: #01bf71;
-    transition: 0ms.3s ease-out;
+    transition: 0.3s ease-out;
 }
 `;
 
@@ -99,7 +105,9 @@ font-weight: bold;
 
 export const WebsiteRights = styled.small`
 color: #fff;
-margin-bottom: 16px;
+margin-bottom: 10px;
+margin-left: 18rem;
+position: absolute;
 `;
 
 export const SocialIcons = styled.div`
