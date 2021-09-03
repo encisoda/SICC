@@ -1,116 +1,155 @@
-import React from "react";
+import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Table, Button, Container, Modal, ModalBody, ModalHeader, FormGroup, ModalFooter } from 'reactstrap';
+import * as FaIcons from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import NavbarTable from "./NavbarTable";
+import './Navbar.css';
+import Pagination from 'react-bootstrap/Pagination'
+import * as AiIcons from "react-icons/ai";
 
 const data = [
-    { id: 1, persona: "Proveedor", estado: "Aprobado" }
+    // { id: 1, persona: "Proveedor", estado: "Aprobado" }
+    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
+    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
+    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
+    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
+    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
+    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
+    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
+    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
+    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
+    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
+    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
+    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
+    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
+
 ]
+
 
 class tabla extends React.Component {
     state = {
         data: data,
-        form:{
-            id: '',
-            persona:'',
-            estado:''
+        form: {
+            // id: '',
+            persona: '',
+            estado: ''
         },
         modalInsertar: false,
         modalEditar: false,
     };
 
-    handleChange=e=>{
+    handleChange = e => {
         this.setState({
-            form:{
+            form: {
                 ...this.state.form,
                 [e.target.name]: e.target.value,
             }
         });
     }
 
-    mostrarModalInsertar=()=>{
-        this.setState({modalInsertar: true});
+    mostrarModalInsertar = () => {
+        this.setState({ modalInsertar: true });
     }
 
-    
-    ocultarModalInsertar=()=>{
-        this.setState({modalInsertar: false});
+
+    ocultarModalInsertar = () => {
+        this.setState({ modalInsertar: false });
     }
 
-    mostrarModalEditar=(registro)=>{
-        this.setState({modalEditar: true, form: registro});
+    mostrarModalEditar = (registro) => {
+        this.setState({ modalEditar: true, form: registro });
     }
 
-    
-    ocultarModalEditar=()=>{
-        this.setState({modalEditar: false});
+
+    ocultarModalEditar = () => {
+        this.setState({ modalEditar: false });
     }
 
-    insertar=()=>{
-        var valorNuevo={...this.state.form};
-        valorNuevo.id = this.state.data.length+1;
+    insertar = () => {
+        var valorNuevo = { ...this.state.form };
+        valorNuevo.id = this.state.data.length + 1;
         var lista = this.state.data;
         lista.push(valorNuevo);
-        this.setState({data: lista, modalInsertar: false});
+        this.setState({ data: lista, modalInsertar: false });
     }
 
-    editar=(dato)=>{
-        var contador=0;
-        var lista=this.state.data;
-        lista.map((registro)=>{
-            if(dato.id==registro.id){
-                lista[contador].persona=dato.persona;
-                lista[contador].estado=dato.estado;
+    editar = (dato) => {
+        var contador = 0;
+        var lista = this.state.data;
+        lista.map((registro) => {
+            if (dato.id == registro.id) {
+                lista[contador].persona = dato.persona;
+                lista[contador].estado = dato.estado;
             }
-            contador ++;
+            contador++;
         });
-        this.setState({data: lista, modalEditar: false});
+        this.setState({ data: lista, modalEditar: false });
     }
 
-    eliminar = (dato)=>{
-        var opcion= window.confirm("Desea eliminar el registro " + dato.id);
-        if(opcion){
-            var contador=0;
+    eliminar = (dato) => {
+        var opcion = window.confirm("Desea eliminar el registro " + dato.id);
+        if (opcion) {
+            var contador = 0;
             var lista = this.state.data;
-            lista.map((registro)=>{
-                if(registro.id==dato.id){
+            lista.map((registro) => {
+                if (registro.id == dato.id) {
                     lista.splice(contador, 1);
                 }
-                contador ++;
+                contador++;
             });
-            this.setState({data: lista});
+            this.setState({ data: lista });
         }
     }
 
     render() {
         return (
             <>
+                <NavbarTable />
                 <Container>
+
                     <br />
-                    <Button color="success" onClick={()=>this.mostrarModalInsertar()}>Nuevo</Button>
+                    <center><h3>Documentacion proveedores</h3></center>
+                    <br />
+                    <Button color="success" onClick={() => this.mostrarModalInsertar()}>Nuevo</Button>
                     <br /><br />
                     <Table>
                         <thead>
                             <tr>
-                                <th>Id</th>
-                                <th>Persona</th>
-                                <th>estado</th>
+                                {/* <th>Id</th> */}
+                                <th>Categoria</th>
+                                <th>Subcategoria</th>
+                                <th> </th>
+                                <th> </th>
                             </tr>
+
                         </thead>
                         <tbody>
                             {this.state.data.map((elemento) => (
                                 <tr>
-                                    <td>{elemento.id}</td>
+                                    {/* <td>{elemento.id}</td> */}
                                     <td>{elemento.persona}</td>
                                     <td>{elemento.estado}</td>
-                                    <td><Button color="primary" onClick={()=> this.mostrarModalEditar(elemento)}>Editar</Button>{" "}
-                                        <Button color="danger" onClick={()=> this.eliminar(elemento)}>Eliminar</Button>
+                                    <td>{elemento.otrotro}
+                                        <Button color="danger">
+                                            <AiIcons.AiOutlineArrowRight />
+                                        </Button>
                                     </td>
+                                    <td>{elemento.otroEstado}
+                                        <Button color="primary" onClick={() => this.mostrarModalEditar(elemento)}>Editar</Button>
+                                        <Button color="danger" onClick={() => this.eliminar(elemento)}>Eliminar</Button>
+                                    </td>
+
+
+
+
+
+
                                 </tr>
                             ))}
                         </tbody>
                     </Table>
                 </Container>
-
                 <Modal isOpen={this.state.modalInsertar}>
                     <ModalHeader>
                         <div><h3>Insertar Registro</h3></div>
@@ -124,7 +163,7 @@ class tabla extends React.Component {
                                 className="form-control"
                                 readOnly
                                 type="text"
-                                value={this.state.data.length+1}
+                                value={this.state.data.length + 1}
                             />
                         </FormGroup>
 
@@ -154,10 +193,10 @@ class tabla extends React.Component {
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button color="primary" onClick={()=>this.insertar()}>
+                        <Button color="primary" onClick={() => this.insertar()}>
                             Insertar
                         </Button>
-                        <Button color="danger" onClick={()=>this.ocultarModalInsertar()}>
+                        <Button color="danger" onClick={() => this.ocultarModalInsertar()}>
                             Cancelar
                         </Button>
                     </ModalFooter>
@@ -210,18 +249,38 @@ class tabla extends React.Component {
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button color="primary" onClick={()=>this.editar(this.state.form)}>
+                        <Button color="primary" onClick={() => this.editar(this.state.form)}>
                             Editar
                         </Button>
-                        <Button color="danger" onClick={()=>this.ocultarModalEditar()}>
+                        <Button color="danger" onClick={() => this.ocultarModalEditar()}>
                             Cancelar
                         </Button>
                     </ModalFooter>
                 </Modal>
+                {/* <Pagination>
+  <Pagination.First />
+  <Pagination.Prev />
+  <Pagination.Item>{1}</Pagination.Item>
+  <Pagination.Ellipsis />
+
+  <Pagination.Item>{10}</Pagination.Item>
+  <Pagination.Item>{11}</Pagination.Item>
+  <Pagination.Item active>{12}</Pagination.Item>
+  <Pagination.Item>{13}</Pagination.Item>
+  <Pagination.Item disabled>{14}</Pagination.Item>
+
+  <Pagination.Ellipsis />
+  <Pagination.Item>{20}</Pagination.Item>
+  <Pagination.Next />
+  <Pagination.Last />
+</Pagination> */}
             </>
-        )
+
+
+        );
     }
 
 }
+
 
 export default tabla;

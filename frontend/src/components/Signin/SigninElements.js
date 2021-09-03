@@ -17,6 +17,12 @@ background: linear-gradient(
 );
 `;
 
+export const Img = styled.img`
+width: 30%;
+margin-left: 7rem;
+
+`;
+
 export const FromWrap = styled.div`
 height: 100%;
 display: flex;
@@ -32,7 +38,7 @@ export const Icon = styled(Link)`
 margin-left: 32px;
 margin-top: 32px;
 text-decoration: none;
-color: #fff;
+color: white;
 font-weight: 700;
 font-size: 32px;
 
