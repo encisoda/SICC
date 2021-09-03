@@ -1,29 +1,31 @@
 {
   "name": "api",
   "version": "1.0.0",
-  "description": "",
+  "description": "API SICC",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "babel src --out-dir build",
+    "dev": "nodemon src/index.js --exec babel-node",
+    "start": "node build/index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "encisoda & julisdrubolini",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongoose": "^5.13.2",
+    "helmet": "^4.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.4",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.11",
-    "@types/express": "^4.17.13",
-    "@types/morgan": "^1.9.3",
-    "@types/node": "^16.0.0",
-    "concurrently": "^6.2.0",
-    "nodemon": "^2.0.12",
-    "ts-node-dev": "^1.1.8",
-    "typescript": "^4.3.5"
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.15.0",
+    "@babel/node": "^7.14.9",
+    "@babel/preset-env": "^7.15.0",
+    "nodemon": "^2.0.12"
   }
 }
