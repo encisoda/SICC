@@ -4,9 +4,9 @@ import { authJwt } from "../middlewares";
 
 const router = Router()
 
-router.get('/', [authJwt.verifyToken, authJwt.isModerator], documentsCtrl.getDocuments)
+router.get('/', documentsCtrl.getDocuments)
 router.get('/:documentId', documentsCtrl.getDocumentById)
-router.post('/', authJwt.verifyToken, documentsCtrl.createDocument)
+router.post('/', documentsCtrl.createDocument)
 router.put('/:documentId', documentsCtrl.updateDocumentById)
 router.delete('/:documentId', documentsCtrl.deleteDocumentById)
 
