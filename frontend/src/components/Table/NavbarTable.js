@@ -20,7 +20,7 @@ function NavbarTable() {
                     <Link to="#" className='menu-bars'>
                         <FaIcons.FaBars onClick={showSidebar} />
                     </Link>
-                    {/* <p className="nombre">Usuario</p> */}
+                    {/* <p className="nombre">@admin</p> */}
                     <Link color="danger" to='/home' className="salir">
                         <BiIcons.BiExit />
                     </Link>

@@ -67,7 +67,6 @@ align-items: center;
 list-style: none;
 text-align: center;
 margin-right: -22px;
-
 @media screen and (max-width: 768px){ 
     display: none;
 }
@@ -77,6 +76,7 @@ height: 80px;
 `;
 
 export const NavLinks = styled(LinkS)`
+
 color: #fff;
 display: flex;
 align-items: center;
