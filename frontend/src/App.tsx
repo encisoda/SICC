@@ -11,9 +11,11 @@ import TableProveedor from './components/TableProveedor/tabla';
 import TablaControl from './components/TablaControl/tabla';
 import TablaFullAdmin from './components/TablaFullAdmin/tabla';
 import AddForm from './components/TableDosAdmin/AddForm';
+import TokenProvider from './context/TokenContext';
 
 function App() {
   return (
+    <TokenProvider>
     <Router>
       <Switch>
         <Route path="/" component={Home} exact />
@@ -27,6 +29,7 @@ function App() {
         <Table />
       </Switch>
     </Router>
+    </TokenProvider>
   );
 }
 

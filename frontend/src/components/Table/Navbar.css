@@ -71,12 +71,14 @@
     align-items: center;
 }
 
-/* .nombre{
+.nombre{
     color: white;
-    font-size: medium;
-    margin-left:50rem;
+    top: 20%;
+    position: relative;
+    margin-left: 105rem;
+    
    
-} */
+}
 
 .salir{
     margin-left: auto;
