@@ -10,23 +10,23 @@ export const createDocument = async (req, res) => {
 
 export const getDocuments = async (req, res) => {
     const documents = await Document.find();
-    res.json(documents)
+    return res.json(documents)
 }
 
-export  const getDocumentById = async (req, res) => {
+export const getDocumentById = async (req, res) => {
     const document = await Document.findById(req.params.documentId);
-    res.status(200).json(document)
+    return res.status(200).json(document)
 }
 
 export  const updateDocumentById = async (req, res) => {
     const updatedDocument = await Document.findByIdAndUpdate(req.params.documentId, req.body,{
         new: true
     })
-    res.status(204).json(updatedDocument)
+    return res.status(204).json(updatedDocument)
 }
 
 export  const deleteDocumentById = async (req, res) => {
     const {documentId} = req.params;
     await Document.findByIdAndDelete(documentId)
-    res.status(204).json()
+    return res.status(204).json()
 }

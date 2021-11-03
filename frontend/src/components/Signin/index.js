@@ -17,6 +17,7 @@ const SignIn = () => {
     {
         console.warn(email, password);
         let item={email,password};
+        console.log(item);
         let result= await fetch("http://localhost:4000/api/auth/signin", {
             method: 'POST',
             headers: {
@@ -26,7 +27,7 @@ const SignIn = () => {
         });
         result = await result.json();
         localStorage.setItem("user-info", JSON.stringify(result))
-        history.push("/add")
+        //history.push("/add")
 
     }
 
