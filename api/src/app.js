@@ -5,7 +5,9 @@ import documentsRoutes from './routes/documents.routes'
 import authRoutes from './routes/auth.routes'
 import {createRoles} from './libs/initialSetup'
 
+var cors = require('cors');
 const app = express()
+app.use(cors());
 createRoles();
 
 app.set('pkg', pkg);
