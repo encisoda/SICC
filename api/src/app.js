@@ -8,9 +8,15 @@ import authRoutes from './routes/auth.routes'
 import usersRoutes from './routes/user.routes'
 import {createRoles} from './libs/initialSetup'
 
+<<<<<<< HEAD
 
 const app = express();
 
+=======
+var cors = require('cors');
+const app = express()
+app.use(cors());
+>>>>>>> 40fd647b46b5b3190797ee40a67575c75f6818c3
 createRoles();
 
 // Middlewares
