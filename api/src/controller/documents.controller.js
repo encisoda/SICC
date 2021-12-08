@@ -18,6 +18,11 @@ export const getDocumentById = async (req, res) => {
     return res.status(200).json(document)
 }
 
+export const getDocumentByCompany = async (req, res) => {
+    const document = await Document.findByCompany(req.params.company);
+    return res.status(200).json(document)
+}
+
 export  const updateDocumentById = async (req, res) => {
     const updatedDocument = await Document.findByIdAndUpdate(req.params.documentId, req.body,{
         new: true
