@@ -8,17 +8,19 @@ import authRoutes from './routes/auth.routes'
 import usersRoutes from './routes/user.routes'
 import {createRoles} from './libs/initialSetup'
 
-const app = express()
 
+const app = express()
 createRoles();
 
+//var cors = require('cors');
+//app.use(cors());
 // Middlewares
 const corsOptions = {
     // origin: "http://localhost:3000",
-  };
+};
 
-app.use(cors(corsOptions));
 app.set('pkg', pkg);
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan('dev'));
 
