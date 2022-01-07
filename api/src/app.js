@@ -1,16 +1,26 @@
 import express from 'express'
 import morgan from 'morgan'
 import pkg from '../package.json'
+import cors from "cors"
+import helmet from "helmet";
 import documentsRoutes from './routes/documents.routes'
 import authRoutes from './routes/auth.routes'
+import usersRoutes from './routes/user.routes'
 import {createRoles} from './libs/initialSetup'
 
-var cors = require('cors');
+
 const app = express()
-app.use(cors());
 createRoles();
 
+//var cors = require('cors');
+//app.use(cors());
+// Middlewares
+const corsOptions = {
+    // origin: "http://localhost:3000",
+};
+
 app.set('pkg', pkg);
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan('dev'));
 
@@ -23,8 +33,10 @@ app.get('/', (req, res) => {
     })
 })
 
-app.use('/api/documents', documentsRoutes)
-app.use('/api/auth', authRoutes)
+// Routes
+app.use('/api/documents', documentsRoutes);
+app.use("/api/users", usersRoutes);
+app.use('/api/auth', authRoutes);
 
 
 export default app;

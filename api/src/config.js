@@ -1,3 +1,3 @@
 export default {
-    SECRET: 'document_api'
+    SECRET: 'documents-api'
 }

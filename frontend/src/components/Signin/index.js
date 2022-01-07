@@ -36,10 +36,17 @@ import { TokenContext } from '../../context/TokenContext';
 
 
     // formulario inicial.
+<<<<<<< HEAD
 // const frmInicialLogin = {
 //     email: '',
 //     password: '',
 //   };
+=======
+const frmInicialLogin = {
+    email: 'admin9@gmail.com',
+    password: 'admin9',
+  };
+>>>>>>> ff205d33ab9e06a364f44f64e58e775367a6f148
   
 
 //   const URLLogin = "http://localhost:4000/api/auth/signin";
@@ -73,17 +80,33 @@ import { TokenContext } from '../../context/TokenContext';
 
   // const realizarPeticion = (form) => {
 
+<<<<<<< HEAD
   //   const options = {
   //     method: "POST",
   //     headers: { "Content-type": "application/json;charset=utf-8" },
   //     mode: 'no-cors',
   //     body: JSON.stringify(form)
   //   }
+=======
+    const options = {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      mode: 'no-cors',
+      body: JSON.stringify(form)
+    }
+>>>>>>> ff205d33ab9e06a364f44f64e58e775367a6f148
 
   //   const recogerToken = async () => {
 
+<<<<<<< HEAD
   //       try {
   //         const res = await fetch(URLLogin, options);
+=======
+        try {
+            console.log("aca estoy");
+            console.log(options);
+          const res = await fetch(URLLogin, options);
+>>>>>>> ff205d33ab9e06a364f44f64e58e775367a6f148
          
   //         const nuevaRespuesta = await res.json();
   
