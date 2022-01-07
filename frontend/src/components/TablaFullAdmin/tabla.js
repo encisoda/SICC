@@ -9,6 +9,7 @@ import Pagination from 'react-bootstrap/Pagination'
 import * as AiIcons from "react-icons/ai";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { Dropdown, MenuItem, DropdownButton } from "react-bootstrap";
 
 
 
@@ -18,15 +19,7 @@ const data = [
     { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "01/06/2019", fechaCarga: "05/06/2018", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
     { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "01/06/2019", fechaCarga: "05/06/2018", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
     { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "01/06/2019", fechaCarga: "05/06/2018", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "01/06/2019", fechaCarga: "05/06/2018", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "01/06/2019", fechaCarga: "05/06/2018", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "01/06/2019", fechaCarga: "05/06/2018", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "01/06/2019", fechaCarga: "05/06/2018", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "01/06/2019", fechaCarga: "05/06/2018", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "01/06/2019", fechaCarga: "05/06/2018", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "01/06/2019", fechaCarga: "05/06/2018", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "01/06/2019", fechaCarga: "05/06/2018", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-
+ 
 
 
 ]
@@ -126,10 +119,23 @@ class tabla extends React.Component {
             <>
                 <NavbarTable />
                 <Container >
+         
+                    <br />
+                    <center><h3>Documentacion cargada</h3></center>
+                    <br />
+                    <center>
+                    <DropdownButton id="dropdown-button-dark-example1" title="Empresa" className="filtro">
+                                <Dropdown.Item href="#/action-1">empresa 1</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2">empresa 2</Dropdown.Item>
+                                <Dropdown.Item href="#/action-3">empresa 3</Dropdown.Item>
+                    </DropdownButton>
 
-                    <br />
-                    <center><h3>Documentacion</h3></center>
-                    <br />
+                    <DropdownButton id="dropdown-button-dark-example1" title="Vehiculo" className="filtr">
+                                <Dropdown.Item href="#/action-1">vehiculo 1</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2">vehiculo 2</Dropdown.Item>
+                                <Dropdown.Item href="#/action-3">vehiculo 3</Dropdown.Item>
+                    </DropdownButton>
+                    </center>
                     {/* <Button color="success" onClick={()=>this.mostrarModalInsertar()}>Nuevo</Button> */}
                     <br /><br />
                     <Table className="contenedor">

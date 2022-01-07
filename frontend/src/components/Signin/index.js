@@ -36,109 +36,109 @@ import { TokenContext } from '../../context/TokenContext';
 
 
     // formulario inicial.
-const frmInicialLogin = {
-    email: '',
-    password: '',
-  };
+// const frmInicialLogin = {
+//     email: '',
+//     password: '',
+//   };
   
 
-  const URLLogin = "http://localhost:4000/api/auth/signin";
-  console.log(URLLogin);
+//   const URLLogin = "http://localhost:4000/api/auth/signin";
+//   console.log(URLLogin);
 
   const SignIn = () => {
 
 
-  const {token, setToken} = "useContext(TokenContext)";
+  // const {token, setToken} = "useContext(TokenContext)";
 
-  const [form, setForm] = useState(frmInicialLogin);
+  // const [form, setForm] = useState(frmInicialLogin);
 
-  const { email, password } = form;
+  // const { email, password } = form;
 
-  const handlerChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  }
+  // const handlerChange = (e) => {
+  //   setForm({ ...form, [e.target.name]: e.target.value });
+  // }
 
-  const handlerSubmit = (e) => {
+  // const handlerSubmit = (e) => {
 
-    e.preventDefault();
+  //   e.preventDefault();
 
-    if (email.trim() === "" || password.trim() === "") {
-      alert("Datos incompletos");
-      return;
-    }
+  //   if (email.trim() === "" || password.trim() === "") {
+  //     alert("Datos incompletos");
+  //     return;
+  //   }
 
-    realizarPeticion(form);
-    setForm(frmInicialLogin);
-  }
+  //   realizarPeticion(form);
+  //   setForm(frmInicialLogin);
+  // }
 
-  const realizarPeticion = (form) => {
+  // const realizarPeticion = (form) => {
 
-    const options = {
-      method: "POST",
-      headers: { "Content-type": "application/json;charset=utf-8" },
-      mode: 'no-cors',
-      body: JSON.stringify(form)
-    }
+  //   const options = {
+  //     method: "POST",
+  //     headers: { "Content-type": "application/json;charset=utf-8" },
+  //     mode: 'no-cors',
+  //     body: JSON.stringify(form)
+  //   }
 
-    const recogerToken = async () => {
+  //   const recogerToken = async () => {
 
-        try {
-          const res = await fetch(URLLogin, options);
+  //       try {
+  //         const res = await fetch(URLLogin, options);
          
-          const nuevaRespuesta = await res.json();
+  //         const nuevaRespuesta = await res.json();
   
-          if (typeof nuevaRespuesta.token === 'undefined')
-          {
-            alert("No existe tal usuario.");
-          }
-          else
-          {
-            console.log(email, password);
-            localStorage.setItem("token", nuevaRespuesta.token);
-            setToken(nuevaRespuesta.token);
-            alert("Usuario encontrado. Logueado con exito. Se ha generado un token :)");
-          }
+  //         if (typeof nuevaRespuesta.token === 'undefined')
+  //         {
+  //           alert("No existe tal usuario.");
+  //         }
+  //         else
+  //         {
+  //           console.log(email, password);
+  //           localStorage.setItem("token", nuevaRespuesta.token);
+  //           setToken(nuevaRespuesta.token);
+  //           alert("Usuario encontrado. Logueado con exito. Se ha generado un token :)");
+  //         }
   
-        } catch (error) {
+  //       } catch (error) {
   
-          console.log("error");
+  //         console.log("error");
   
-        }
+  //       }
   
-      }
+  //     }
   
-      recogerToken();
-    }
+  //     recogerToken();
+  //   }
   
   
 
     return (
 
-        <div className="contenedor-form">
+      //   <div className="contenedor-form">
 
-        <form onSubmit={handlerSubmit}>
+      //   <form onSubmit={handlerSubmit}>
   
   
-          <div className="wrapper">
-            <div className="row">
-              <h1> LOGIN </h1>
-              <div className="form-control">
-                <input name="email" placeholder="Ingrese su email" onChange={handlerChange} value={email} />
-                <span className="toggle">
-                  <i className="fas fa-user"></i>
-                </span>
-              </div>
-              <div className="form-control">
-                <input name="password" type="password" placeholder="Ingrese su contraseña" onChange={handlerChange} value={password} />
+      //     <div className="wrapper">
+      //       <div className="row">
+      //         <h1> LOGIN </h1>
+      //         <div className="form-control">
+      //           <input name="email" placeholder="Ingrese su email" onChange={handlerChange} value={email} />
+      //           <span className="toggle">
+      //             <i className="fas fa-user"></i>
+      //           </span>
+      //         </div>
+      //         <div className="form-control">
+      //           <input name="password" type="password" placeholder="Ingrese su contraseña" onChange={handlerChange} value={password} />
   
-              </div>
-              <input type="submit" value={"Ingresar"} onClick={handlerSubmit} />         
-              </div>
-          </div>
+      //         </div>
+      //         <input type="submit" value={"Ingresar"} onClick={handlerSubmit} />         
+      //         </div>
+      //     </div>
   
-        </form>
+      //   </form>
   
-      </div>
+      // </div>
 
         // <div>
           
@@ -160,25 +160,25 @@ const frmInicialLogin = {
         // </div>
 
 
-        // <>
-        //     <Container>
-        //         <FromWrap>
-        //             <Icon to="/">SICC</Icon>
-        //             <FormContent>
-        //                 <Form>
-        //                     <Img src={logo} />
-        //                     <FormH1>Iniciar Sesion</FormH1>
-        //                     <FormLabel htmlFor='for'>Email</FormLabel>
-        //                     <FormInput type='email' required />
-        //                     <FormLabel htmlFor='for'>Contraseña</FormLabel>
-        //                     <FormInput type='password' required />
-        //                     <FormButton type='submit'>Ingresar</FormButton>
-        //                     <Text>Olvide la contraseña</Text>
-        //                 </Form>
-        //             </FormContent>
-        //         </FromWrap>
-        //     </Container>
-        // </>
+        <>
+            <Container>
+                <FromWrap>
+                    <Icon to="/">SICC</Icon>
+                    <FormContent>
+                        <Form>
+                            <Img src={logo} />
+                            <FormH1>Iniciar Sesion</FormH1>
+                            <FormLabel htmlFor='for'>Email</FormLabel>
+                            <FormInput type='email' required />
+                            <FormLabel htmlFor='for'>Contraseña</FormLabel>
+                            <FormInput type='password' required />
+                            <FormButton type='submit'>Ingresar</FormButton>
+                            <Text>Olvide la contraseña</Text>
+                        </Form>
+                    </FormContent>
+                </FromWrap>
+            </Container>
+        </>
     );
 }
 

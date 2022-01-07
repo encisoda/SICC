@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Router, Switch } from 'react-router-dom';
+import Selected from '../components/Selected';
 import NavbarTable from '../components/Table/NavbarTable';
 import TableProveedor from '../components/TableProveedor/tabla';
 

@@ -21,7 +21,7 @@ function NavbarTable() {
                         <FaIcons.FaBars onClick={showSidebar} />
                     </Link>
                     {/* <p className="nombre">Usuario</p> */}
-                    <Link color="danger" to='/home' className="salir">
+                    <Link color="danger" to='/' className="salir">
                         <BiIcons.BiExit />
                     </Link>
 

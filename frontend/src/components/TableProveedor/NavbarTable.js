@@ -7,7 +7,7 @@ import { SidebarData } from './SidebarData';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
 import { Table, Button, Container, Modal, ModalBody, ModalHeader, FormGroup, ModalFooter } from 'reactstrap';
-
+import logo from '../../images/logo.png';
 
 function NavbarTable() {
     const [sidebar, setSidebar] = useState(false);
@@ -30,7 +30,9 @@ function NavbarTable() {
                 <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
 
                     <ul className='nav-menu-items' onClick={showSidebar}>
+                
                         <li className="navbar-toggle">
+                        {/* <img src={logo}/> */}
                             <Link to="#" className='menu-bars'>
                                 <AiIcons.AiOutlineClose />
                             </Link>

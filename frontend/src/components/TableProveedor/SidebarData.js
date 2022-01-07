@@ -4,30 +4,24 @@ import * as AiIcons from "react-icons/ai";
 import * as IoIcons from "react-icons/io";
 import * as MdIcons from "react-icons/md";
 
-
 export const SidebarData = [
     {
         title: 'Documentacion',
-        path: '/',
+        path: '/tablaProveedor',
         icon: <MdIcons.MdAttachFile/>,
         cName: 'nav-text'
     },
     {
-        title: 'Crear persona',
-        path: '/proveedores',
+        title: 'Empleados',
+        path: '/tabla',
         icon: <FaIcons.FaUserPlus/>,
         cName: 'nav-text'
     },
     {
-        title: 'Crear vehiculo',
-        path: '/tabla',
+        title: 'Vehiculo',
+        path: '/addVehiculo',
         icon: <AiIcons.AiFillCar/>,
         cName: 'nav-text'
     },
-    {
-        title: 'Crear auditoria',
-        path: '/tabla',
-        icon: <AiIcons.AiOutlineAudit/>,
-        cName: 'nav-text'
-    },
+
 ]
