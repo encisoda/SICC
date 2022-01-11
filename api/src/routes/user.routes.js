@@ -1,8 +1,9 @@
 import { Router } from "express";
-const router = Router();
-
 import * as usersCtrl from "../controller/user.controller";
 import { authJwt, verifySignup } from "../middlewares";
+import { verifyToken, isAdmin, isCarga, isControl, isfullAdmin } from "../middlewares/authJwt";
+
+const router = Router();
 
 router.post(
   "/",
@@ -12,6 +13,10 @@ router.post(
     verifySignup.checkDuplicateUsernameOrEmail,
   ],
   usersCtrl.createUser
-);
+)
+router.get('/', verifyToken, usersCtrl.getUsers)
+router.get('/:userId', verifyToken, usersCtrl.getUser)
+router.put('/:userId', verifyToken, usersCtrl.updateUserById)
+router.delete('/:userId', verifyToken, usersCtrl.deleteUserById)
 
 export default router;
