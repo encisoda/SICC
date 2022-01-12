@@ -23,14 +23,14 @@ export const getDocumentByCompany = async (req, res) => {
     return res.status(200).json(document)
 }
 
-export  const updateDocumentById = async (req, res) => {
+export const updateDocumentById = async (req, res) => {
     const updatedDocument = await Document.findByIdAndUpdate(req.params.documentId, req.body,{
         new: true
     })
     return res.status(204).json(updatedDocument)
 }
 
-export  const deleteDocumentById = async (req, res) => {
+export const deleteDocumentById = async (req, res) => {
     const {documentId} = req.params;
     await Document.findByIdAndDelete(documentId)
     return res.status(204).json()
