@@ -13,7 +13,7 @@ import { Dropdown, MenuItem, DropdownButton } from "react-bootstrap";
 import 'bootstrap/dist/js/bootstrap.js';
 import $ from 'jquery';
 import Popper from 'popper.js';
-
+import axios from 'axios';
 const data = [
     // { id: 1, persona: "Proveedor", estado: "Aprobado" }
     { persona: "Alejandro", estado: "Albo", otroEstado: "", otrotro: "" },
@@ -24,6 +24,15 @@ const data = [
 
 
 class tabla extends React.Component {
+
+        ///CONEXION A LA API CON AXIOS
+        getUsers() {
+            axios.get('http://localhost:4000/api/documents')
+                .then(result => {
+                    console.log('HOLA', result)
+                }).catch('HOLAAAA',console.log)
+        }
+
     state = {
         data: data,
         form: {

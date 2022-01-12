@@ -23,8 +23,24 @@ const data = [
 
 ]
 
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZGMyY2NmMDUzNDI0OTBiMWExYzJkYiIsImlhdCI6MTY0MTgxOTM0OSwiZXhwIjoxNjQxOTA1NzQ5fQ.Rds96kQRQ6KoPdVOnMzUQ66hMTswFIYweQczT_FadQo';
 
 class tabla extends React.Component {
+
+    ///CONEXION A LA API CON AXIOS
+    getUsers() {
+        console.log('holllllalalalalalala');
+        axios.get('http://localhost:4000/api/documents', {
+            headers: {
+                'x-access-token': `${token}` 
+            }}).then(result => {
+                console.log('HOLA', result)
+            }).catch(console.log)
+            
+        }
+        
+       
+
     state = {
         data: data,
         form: {
@@ -102,6 +118,7 @@ class tabla extends React.Component {
     render() {
         return (
             <>
+                
                 <NavbarTable />
                 <Container>
 
@@ -113,6 +130,7 @@ class tabla extends React.Component {
                     <Table>
                         <thead>
                             <tr>
+                                
                                 {/* <th>Id</th> */}
                                 <th>Nombre</th>
                                 <th>Apellido</th>
@@ -149,7 +167,7 @@ class tabla extends React.Component {
                     </ModalHeader>
                     <ModalBody>
                         <FormGroup>
-                        <DropdownButton id="dropdown-basic-button" title="Rol">
+                            <DropdownButton id="dropdown-basic-button" title="Rol">
                                 <Dropdown.Item href="#/action-1">FullAdmin</Dropdown.Item>
                                 <Dropdown.Item href="#/action-2">Admin</Dropdown.Item>
                                 <Dropdown.Item href="#/action-3">Proveedor</Dropdown.Item>
@@ -200,7 +218,7 @@ class tabla extends React.Component {
                     </ModalHeader>
                     <ModalBody>
                         <FormGroup>
-                         
+
                         </FormGroup>
 
                         <FormGroup>
