@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "6e5d2e8f-e11d-4439-ac4a-894c168c0afd",
+		"name": "API SICC",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Files",
+			"item": [
+				{
+					"name": "http://localhost:4000/api/auth/signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"username\":\"admin9\",\r\n\"email\": \"admin9@gmail.com\",\r\n\"password\": \"admin9\",\r\n\"roles\": \"admin\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:4000/api/auth/signin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"fulladmin@gmail.com\",\r\n    \"password\": \"fulladmin\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:4000/api/documents",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYjEyYjY0MzliNDU0YjU4NzYwMGE2YSIsImlhdCI6MTY0MTUxNjMyNywiZXhwIjoxNjQxNjAyNzI3fQ.ZKzyxi42YVwHxt7ABpTSL3xDPzMmZxqiQTtKelBxhJc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/documents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"documents"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:4000/api/auth/signin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"encisoda3@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:4000/api/auth/signup",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"username\":\"fulladmin\",\r\n\"email\": \"fulladmin@gmail.com\",\r\n\"password\": \"fulladmin\",\r\n\"roles\": [\"fullAdmin\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

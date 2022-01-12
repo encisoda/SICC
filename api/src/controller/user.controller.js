@@ -30,8 +30,27 @@ export const createUser = async (req, res) => {
   } catch (error) {
     console.error(error);
   }
-};
+}
 
-export const getUsers = async (req, res) => {};
+export const getUsers = async (req, res) => {
+  const users = await User.find()
+  return res.json(users)
+}
 
-export const getUser = async (req, res) => {};
+export const getUser = async (req, res) => {
+  const user = await User.findById(req.params.userId)
+  return res.status(200).json(user)
+}
+
+export const updateUserById = async (req, res) => {
+  const updatedUser = await User.findByIdAndUpdate(req.params.userId, req.body,{
+    new: true
+  })
+  return res.status(204).json(updatedUser)
+}
+
+export const deleteUserById = async (req, res) => {
+  const {userId} = req.params;
+  await User.findByIdAndDelete(userId)
+  return res.status(204).json()
+}
