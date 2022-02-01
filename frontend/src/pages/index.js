@@ -15,7 +15,7 @@ const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZGUxYTQ2MDUzNDI0
 const Home = () => {
 
         console.log('holllllalalalalalala');
-        axios.get('http://localhost:4000/api/documents', {
+        axios.get('http://localhost:4000/api/users', {
             headers: {
                 'x-access-token': `${token}` 
             }}).then(result => {
