@@ -7,27 +7,32 @@ import NavbarTable from "./NavbarTable";
 import './Navbar.css';
 import Pagination from 'react-bootstrap/Pagination'
 import * as AiIcons from "react-icons/ai";
-
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import { Dropdown, MenuItem, DropdownButton } from "react-bootstrap";
+import 'bootstrap/dist/js/bootstrap.js';
+import $ from 'jquery';
+import Popper from 'popper.js';
+import axios from 'axios';
 const data = [
     // { id: 1, persona: "Proveedor", estado: "Aprobado" }
-    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
-    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
-    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
-    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
-    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
-    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
-    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
-    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
-    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
-    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
-    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
-    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
-    { persona: "Texto", estado: "Texto", otroEstado: "", otrotro: "" },
+    { persona: "Alejandro", estado: "Albo", otroEstado: "", otrotro: "" },
+    { persona: "Julian", estado: "Robertin", otroEstado: "", otrotro: "" },
+    { persona: "Alex", estado: "Seli", otroEstado: "", otrotro: "" }
 
 ]
 
 
 class tabla extends React.Component {
+
+        ///CONEXION A LA API CON AXIOS
+        getUsers() {
+            axios.get('http://localhost:4000/api/documents')
+                .then(result => {
+                    console.log('HOLA', result)
+                }).catch('HOLAAAA',console.log)
+        }
+
     state = {
         data: data,
         form: {
@@ -109,7 +114,7 @@ class tabla extends React.Component {
                 <Container>
 
                     <br />
-                    <center><h3>Documentacion proveedores</h3></center>
+                    <center><h3>Empleados</h3></center>
                     <br />
                     <Button color="success" onClick={() => this.mostrarModalInsertar()}>Nuevo</Button>
                     <br /><br />
@@ -117,8 +122,8 @@ class tabla extends React.Component {
                         <thead>
                             <tr>
                                 {/* <th>Id</th> */}
-                                <th>Categoria</th>
-                                <th>Subcategoria</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
                                 <th> </th>
                                 <th> </th>
                             </tr>
@@ -130,11 +135,7 @@ class tabla extends React.Component {
                                     {/* <td>{elemento.id}</td> */}
                                     <td>{elemento.persona}</td>
                                     <td>{elemento.estado}</td>
-                                    <td>{elemento.otrotro}
-                                        <Button color="danger">
-                                            <AiIcons.AiOutlineArrowRight />
-                                        </Button>
-                                    </td>
+
                                     <td>{elemento.otroEstado}
                                         <Button color="primary" onClick={() => this.mostrarModalEditar(elemento)}>Editar</Button>
                                         <Button color="danger" onClick={() => this.eliminar(elemento)}>Eliminar</Button>
@@ -152,24 +153,20 @@ class tabla extends React.Component {
                 </Container>
                 <Modal isOpen={this.state.modalInsertar}>
                     <ModalHeader>
-                        <div><h3>Insertar Registro</h3></div>
+                        <div><h3>Agregar</h3></div>
                     </ModalHeader>
                     <ModalBody>
                         <FormGroup>
-                            <label>
-                                Id:
-                            </label>
-                            <input
-                                className="form-control"
-                                readOnly
-                                type="text"
-                                value={this.state.data.length + 1}
-                            />
+                        <DropdownButton id="dropdown-basic-button" title="Empresa">
+                                <Dropdown.Item href="#/action-1">Empresa1</Dropdown.Item>
+                                <Dropdown.Item href="#/action-2">Empresa2</Dropdown.Item>
+                                <Dropdown.Item href="#/action-3">Empresa3</Dropdown.Item>
+                            </DropdownButton>
                         </FormGroup>
 
                         <FormGroup>
                             <label>
-                                Persona:
+                                Nombre:
                             </label>
                             <input
                                 className="form-control"
@@ -181,7 +178,7 @@ class tabla extends React.Component {
 
                         <FormGroup>
                             <label>
-                                Estado:
+                                Apellido:
                             </label>
                             <input
                                 className="form-control"
@@ -206,19 +203,11 @@ class tabla extends React.Component {
 
                 <Modal isOpen={this.state.modalEditar}>
                     <ModalHeader>
-                        <div><h3>Editar Registro</h3></div>
+                        <div><h3>Editar</h3></div>
                     </ModalHeader>
                     <ModalBody>
                         <FormGroup>
-                            <label>
-                                Id:
-                            </label>
-                            <input
-                                className="form-control"
-                                readOnly
-                                type="text"
-                                value={this.state.form.id}
-                            />
+                         
                         </FormGroup>
 
                         <FormGroup>
@@ -236,7 +225,7 @@ class tabla extends React.Component {
 
                         <FormGroup>
                             <label>
-                                Estado:
+                                Apellido:
                             </label>
                             <input
                                 className="form-control"
@@ -257,23 +246,7 @@ class tabla extends React.Component {
                         </Button>
                     </ModalFooter>
                 </Modal>
-                {/* <Pagination>
-  <Pagination.First />
-  <Pagination.Prev />
-  <Pagination.Item>{1}</Pagination.Item>
-  <Pagination.Ellipsis />
 
-  <Pagination.Item>{10}</Pagination.Item>
-  <Pagination.Item>{11}</Pagination.Item>
-  <Pagination.Item active>{12}</Pagination.Item>
-  <Pagination.Item>{13}</Pagination.Item>
-  <Pagination.Item disabled>{14}</Pagination.Item>
-
-  <Pagination.Ellipsis />
-  <Pagination.Item>{20}</Pagination.Item>
-  <Pagination.Next />
-  <Pagination.Last />
-</Pagination> */}
             </>
 
 

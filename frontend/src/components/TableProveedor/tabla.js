@@ -4,32 +4,19 @@ import { Table, Button, Container, Modal, ModalBody, ModalHeader, FormGroup, Mod
 import * as FaIcons from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import NavbarTable from "./NavbarTable";
+import Selected from "../Selected";
 import './Navbar.css';
 import Pagination from 'react-bootstrap/Pagination'
 import * as AiIcons from "react-icons/ai";
 import * as BsIcons from "react-icons/bs";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
-
+import empleado from '../Empleado/tabla';
 
 const data = [
     // { id: 1, persona: "Proveedor", estado: "Aprobado" }
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "", fechaCarga: "", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "", fechaCarga: "", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "", fechaCarga: "", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "", fechaCarga: "", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "", fechaCarga: "", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "", fechaCarga: "", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "", fechaCarga: "", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "", fechaCarga: "", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "", fechaCarga: "", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "", fechaCarga: "", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-    { denominacion: "Texto", documetacion: "Texto", fechaVencimiento: "", fechaCarga: "", observaciones: "Texto", grupo: "Texto", estado: "", accion: "", otraAccion: "" },
-
-
-
-
+    { denominacion: "empleado1", documetacion: "Seguro de vida", fechaCarga: "", observaciones: "En estado aprobado", grupo: "Texto", estado: "", otraAccion: "" },
+    { denominacion: "vehiculo1", documetacion: "VTV", fechaCarga: "", observaciones: "En estado aprobado", grupo: "Texto", estado: "", otraAccion: "", link: "" },
 ]
 
 
@@ -40,12 +27,10 @@ class tabla extends React.Component {
             // id: '',
             denominacion: '',
             documetacion: '',
-            fechaVencimiento: '',
             fechaCarga: '',
             observaciones: '',
             grupo: '',
             estado: '',
-            accion: '',
             otraAccion: '',
         },
         modalInsertar: false,
@@ -127,9 +112,8 @@ class tabla extends React.Component {
             <>
                 <NavbarTable />
                 <Container >
-
                     <br />
-                    <center><h3>Documentacion solicitada</h3></center>
+                    <center><h3>Documentación solicitada</h3></center>
                     <br />
                     {/* <Button color="success" onClick={()=>this.mostrarModalInsertar()}>Nuevo</Button> */}
                     <br /><br />
@@ -139,7 +123,6 @@ class tabla extends React.Component {
                                 {/* <th>Id</th> */}
                                 <th>Denominacion</th>
                                 <th>Documentacion</th>
-                                <th>Fecha de vencimiento</th>
                                 <th>Fecha de carga</th>
                                 <th>Observaciones</th>
                                 <th>Grupo</th>
@@ -155,30 +138,35 @@ class tabla extends React.Component {
                                     {/* <td>{elemento.id}</td> */}
                                     <td>{elemento.denominacion}</td>
                                     <td>{elemento.documetacion}</td>
-                                    <td>{elemento.fechaVencimiento}
-                                        <DatePicker selected={this.state.fecha} onChange={this.onChange} />
-                                    </td>
+                                    {/* <td>{elemento.fechaVencimiento}
+                                         <DatePicker selected={this.state.fecha} onChange={this.onChange} /> 
+                                    </td> */}
                                     <td>{elemento.fechaCarga}
-                                        <DatePicker selected={this.state.fecha} onChange={this.onChange} />
+                                        12/12/2021
+                                        {/* <DatePicker selected={this.state.fecha} onChange={this.onChange} /> */}
                                     </td>
                                     <td>{elemento.observaciones}</td>
                                     <td>{elemento.grupo}</td>
                                     <td>{elemento.estado}
-                                        <Button className="aprobado">
+                                        <Button className="aprobado" onClick={() => this.mostrarModalEditar(elemento)}>
+
                                             <BsIcons.BsCheckCircle />
                                             Aprobado
                                         </Button>
                                     </td>
-                                    <td>{elemento.accion}
+                                    {/* <td>{elemento.accion}
                                         <Button color="danger">
                                             Subir
                                         </Button>
-                                    </td>
+                                    </td> */}
                                     <td>{elemento.otraAccion}
                                         <Button color="danger">
-                                            <AiIcons.AiOutlineDownload />
+                                            <Link to="empleado" className="linkEmpleado"><AiIcons.AiOutlineArrowRight /></Link>
                                         </Button>
                                     </td>
+
+
+
 
                                     {/* <Button color="primary" onClick={()=> this.mostrarModalEditar(elemento)}>Editar</Button>{" "}
                                         <Button color="danger" onClick={()=> this.eliminar(elemento)}>Eliminar</Button> */}
@@ -190,75 +178,13 @@ class tabla extends React.Component {
                         </tbody>
                     </Table>
                 </Container>
-                <Modal isOpen={this.state.modalInsertar}>
-                    <ModalHeader>
-                        <div><h3>Insertar Registro</h3></div>
-                    </ModalHeader>
-                    <ModalBody>
-                        <FormGroup>
-                            <label>
-                                Id:
-                            </label>
-                            <input
-                                className="form-control"
-                                readOnly
-                                type="text"
-                                value={this.state.data.length + 1}
-                            />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <label>
-                                Persona:
-                            </label>
-                            <input
-                                className="form-control"
-                                name="persona"
-                                type="text"
-                                onChange={this.handleChange}
-                            />
-                        </FormGroup>
-
-                        <FormGroup>
-                            <label>
-                                Estado:
-                            </label>
-                            <input
-                                className="form-control"
-                                name="estado"
-                                type="text"
-                                onChange={this.handleChange}
-                            />
-                        </FormGroup>
-                    </ModalBody>
-
-                    <ModalFooter>
-                        <Button color="primary" onClick={() => this.insertar()}>
-                            Insertar
-                        </Button>
-                        <Button color="danger" onClick={() => this.ocultarModalInsertar()}>
-                            Cancelar
-                        </Button>
-                    </ModalFooter>
-                </Modal>
-
-
-
                 <Modal isOpen={this.state.modalEditar}>
                     <ModalHeader>
-                        <div><h3>Editar Registro</h3></div>
+                        <div><h3>Editar</h3></div>
                     </ModalHeader>
                     <ModalBody>
                         <FormGroup>
-                            <label>
-                                Id:
-                            </label>
-                            <input
-                                className="form-control"
-                                readOnly
-                                type="text"
-                                value={this.state.form.id}
-                            />
+
                         </FormGroup>
 
                         <FormGroup>
@@ -276,7 +202,7 @@ class tabla extends React.Component {
 
                         <FormGroup>
                             <label>
-                                Estado:
+                                Apellido:
                             </label>
                             <input
                                 className="form-control"
@@ -297,23 +223,7 @@ class tabla extends React.Component {
                         </Button>
                     </ModalFooter>
                 </Modal>
-                {/* <Pagination>
-  <Pagination.First />
-  <Pagination.Prev />
-  <Pagination.Item>{1}</Pagination.Item>
-  <Pagination.Ellipsis />
 
-  <Pagination.Item>{10}</Pagination.Item>
-  <Pagination.Item>{11}</Pagination.Item>
-  <Pagination.Item active>{12}</Pagination.Item>
-  <Pagination.Item>{13}</Pagination.Item>
-  <Pagination.Item disabled>{14}</Pagination.Item>
-
-  <Pagination.Ellipsis />
-  <Pagination.Item>{20}</Pagination.Item>
-  <Pagination.Next />
-  <Pagination.Last />
-</Pagination> */}
             </>
 
 

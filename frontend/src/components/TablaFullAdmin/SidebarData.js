@@ -8,32 +8,44 @@ import * as MdIcons from "react-icons/md";
 export const SidebarData = [
     {
         title: 'Documentacion',
-        path: '/',
+        path: '/tablaDocumentos',
         icon: <MdIcons.MdAttachFile/>,
         cName: 'nav-text'
     },
     {
-        title: 'Crear proveedor',
+        title: 'Documentacion empresas',
+        path: '/tablaAdmin',
+        icon: <MdIcons.MdAttachFile/>,
+        cName: 'nav-text'
+    },
+    {
+        title: 'Proveedor',
         path: '/home',
         icon: <FaIcons.FaUserCheck/>,
         cName: 'nav-text'
     },
     {
-        title: 'Crear persona',
-        path: '/proveedores',
+        title: 'Persona',
+        path: '/tabla',
         icon: <FaIcons.FaUserPlus/>,
         cName: 'nav-text'
     },
     {
-        title: 'Crear vehiculo',
-        path: '/tabla',
+        title: 'Vehiculo',
+        path: '/addVehiculo',
         icon: <AiIcons.AiFillCar/>,
         cName: 'nav-text'
     },
     {
-        title: 'Crear auditoria',
-        path: '/tabla',
-        icon: <AiIcons.AiOutlineAudit/>,
+        title: 'Usuarios',
+        path: '/users',
+        icon: <FaIcons.FaUserPlus/>,
         cName: 'nav-text'
     },
+    // {
+    //     title: 'Crear auditoria',
+    //     path: '/tabla',
+    //     icon: <AiIcons.AiOutlineAudit/>,
+    //     cName: 'nav-text'
+    // },
  ]

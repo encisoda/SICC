@@ -12,6 +12,11 @@ import TablaControl from './components/TablaControl/tabla';
 import TablaFullAdmin from './components/TablaFullAdmin/tabla';
 import AddForm from './components/TableDosAdmin/AddForm';
 import TokenProvider from './context/TokenContext';
+import Empleado from './components/Empleado/tabla';
+import Vehiculo from './components/Vehiculo/tabla';
+import agregarVehiculo from './components/agregarVehiculo/tabla';
+import tablaDocumentos from './components/tablaDocumentos/tabla';
+import usuarios from './components/usuarios/tabla';
 
 function App() {
   return (
@@ -25,8 +30,14 @@ function App() {
         <Route path="/tablaProveedor" component={TableProveedor} exact />
         <Route path="/tablaControl" component={TablaControl} exact />
         <Route path="/tablaFullAdmin" component={TablaFullAdmin} exact />
-        <SignIn />
-        <Table />
+        <Route path="/empleado" component={Empleado} exact />
+        <Route path="/vehiculo" component={Vehiculo} exact />
+        <Route path="/addVehiculo" component={agregarVehiculo} exact />
+        <Route path="/tablaDocumentos" component={tablaDocumentos} exact />
+        <Route path="/users" component={usuarios} exact />
+        
+
+        
       </Switch>
     </Router>
     </TokenProvider>

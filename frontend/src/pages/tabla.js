@@ -8,6 +8,7 @@ const TablaPage = () => {
         <>
             <Router>
                 <NavbarTable />
+                
                 <Switch>
                     <Route path='/' />
                 </Switch>
