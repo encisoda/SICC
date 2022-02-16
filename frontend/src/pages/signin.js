@@ -1,10 +1,11 @@
 import React from 'react';
-import SignIn from '../components/Signin';
+import SignIn from '../components/Signin/signin';
+import Index from '../components/Signin';
 
 const SigninPage = () => {
     return (
         <>
-            <SignIn />
+            <Index />
         </>
     );
 };

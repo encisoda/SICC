@@ -24,7 +24,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/sigin" component={SigninPage} exact />
+        <Route path="/signin" component={SigninPage} exact />
         <Route path="/tabla" component={Table} exact />
         <Route path="/tablaAdmin" component={TableDosAdmin} exact />
         <Route path="/tablaProveedor" component={TableProveedor} exact />
