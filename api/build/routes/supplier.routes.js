@@ -9,9 +9,7 @@ exports["default"] = void 0;
 
 var _express = require("express");
 
-var usersCtrl = _interopRequireWildcard(require("../controller/user.controller"));
-
-var _middlewares = require("../middlewares");
+var supplierCtrl = _interopRequireWildcard(require("../controller/supplier.controller"));
 
 var _authJwt = require("../middlewares/authJwt");
 
@@ -20,10 +18,10 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 var router = (0, _express.Router)();
-router.post("/", [_middlewares.authJwt.verifyToken, _middlewares.authJwt.isAdmin, _middlewares.verifySignup.checkDuplicateUsernameOrEmail], usersCtrl.createUser);
-router.get('/', _authJwt.verifyToken, usersCtrl.getUsers);
-router.get('/:userId', _authJwt.verifyToken, usersCtrl.getUser);
-router.put('/:userId', _authJwt.verifyToken, usersCtrl.updateUserById);
-router["delete"]('/:userId', _authJwt.verifyToken, usersCtrl.deleteUserById);
+router.get('/', _authJwt.verifyToken, supplierCtrl.getSuppliers);
+router.get('/:supplierId', _authJwt.verifyToken, supplierCtrl.getSupplierById);
+router.post('/', _authJwt.verifyToken, supplierCtrl.createSupplier);
+router.put('/:supplierId', _authJwt.verifyToken, supplierCtrl.updateSupplierById);
+router["delete"]('/:supplierId', _authJwt.verifyToken, supplierCtrl.deleteSupplierById);
 var _default = router;
 exports["default"] = _default;

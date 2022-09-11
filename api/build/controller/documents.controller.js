@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.updateDocumentById = exports.getDocuments = exports.getDocumentById = exports.deleteDocumentById = exports.createDocument = void 0;
+exports.updateDocumentById = exports.getDocuments = exports.getDocumentById = exports.getDocumentByCompany = exports.deleteDocumentById = exports.createDocument = void 0;
 
 var _Document = _interopRequireDefault(require("../models/Document"));
 
@@ -66,7 +66,7 @@ var getDocuments = /*#__PURE__*/function () {
 
           case 2:
             documents = _context2.sent;
-            res.json(documents);
+            return _context2.abrupt("return", res.json(documents));
 
           case 4:
           case "end":
@@ -95,7 +95,7 @@ var getDocumentById = /*#__PURE__*/function () {
 
           case 2:
             document = _context3.sent;
-            res.status(200).json(document);
+            return _context3.abrupt("return", res.status(200).json(document));
 
           case 4:
           case "end":
@@ -112,21 +112,19 @@ var getDocumentById = /*#__PURE__*/function () {
 
 exports.getDocumentById = getDocumentById;
 
-var updateDocumentById = /*#__PURE__*/function () {
+var getDocumentByCompany = /*#__PURE__*/function () {
   var _ref4 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4(req, res) {
-    var updatedDocument;
+    var document;
     return regeneratorRuntime.wrap(function _callee4$(_context4) {
       while (1) {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.next = 2;
-            return _Document["default"].findByIdAndUpdate(req.params.documentId, req.body, {
-              "new": true
-            });
+            return _Document["default"].findByCompany(req.params.company);
 
           case 2:
-            updatedDocument = _context4.sent;
-            res.status(204).json(updatedDocument);
+            document = _context4.sent;
+            return _context4.abrupt("return", res.status(200).json(document));
 
           case 4:
           case "end":
@@ -136,26 +134,28 @@ var updateDocumentById = /*#__PURE__*/function () {
     }, _callee4);
   }));
 
-  return function updateDocumentById(_x7, _x8) {
+  return function getDocumentByCompany(_x7, _x8) {
     return _ref4.apply(this, arguments);
   };
 }();
 
-exports.updateDocumentById = updateDocumentById;
+exports.getDocumentByCompany = getDocumentByCompany;
 
-var deleteDocumentById = /*#__PURE__*/function () {
+var updateDocumentById = /*#__PURE__*/function () {
   var _ref5 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(req, res) {
-    var documentId;
+    var updatedDocument;
     return regeneratorRuntime.wrap(function _callee5$(_context5) {
       while (1) {
         switch (_context5.prev = _context5.next) {
           case 0:
-            documentId = req.params.documentId;
-            _context5.next = 3;
-            return _Document["default"].findByIdAndDelete(documentId);
+            _context5.next = 2;
+            return _Document["default"].findByIdAndUpdate(req.params.documentId, req.body, {
+              "new": true
+            });
 
-          case 3:
-            res.status(204).json();
+          case 2:
+            updatedDocument = _context5.sent;
+            return _context5.abrupt("return", res.status(204).json(updatedDocument));
 
           case 4:
           case "end":
@@ -165,8 +165,37 @@ var deleteDocumentById = /*#__PURE__*/function () {
     }, _callee5);
   }));
 
-  return function deleteDocumentById(_x9, _x10) {
+  return function updateDocumentById(_x9, _x10) {
     return _ref5.apply(this, arguments);
+  };
+}();
+
+exports.updateDocumentById = updateDocumentById;
+
+var deleteDocumentById = /*#__PURE__*/function () {
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(req, res) {
+    var documentId;
+    return regeneratorRuntime.wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            documentId = req.params.documentId;
+            _context6.next = 3;
+            return _Document["default"].findByIdAndDelete(documentId);
+
+          case 3:
+            return _context6.abrupt("return", res.status(204).json());
+
+          case 4:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6);
+  }));
+
+  return function deleteDocumentById(_x11, _x12) {
+    return _ref6.apply(this, arguments);
   };
 }();
 

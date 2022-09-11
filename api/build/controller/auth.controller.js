@@ -27,14 +27,15 @@ var signUp = /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
+            _context.prev = 0;
             _req$body = req.body, username = _req$body.username, email = _req$body.email, password = _req$body.password, roles = _req$body.roles;
             _context.t0 = _User["default"];
             _context.t1 = username;
             _context.t2 = email;
-            _context.next = 6;
+            _context.next = 7;
             return _User["default"].encryptPassword(password);
 
-          case 6:
+          case 7:
             _context.t3 = _context.sent;
             _context.t4 = {
               username: _context.t1,
@@ -44,58 +45,63 @@ var signUp = /*#__PURE__*/function () {
             newUser = new _context.t0(_context.t4);
 
             if (!roles) {
-              _context.next = 16;
+              _context.next = 17;
               break;
             }
 
-            _context.next = 12;
+            _context.next = 13;
             return _Role["default"].find({
               name: {
                 $in: roles
               }
             });
 
-          case 12:
+          case 13:
             foundRoles = _context.sent;
             newUser.roles = foundRoles.map(function (role) {
               return role._id;
             });
-            _context.next = 20;
+            _context.next = 21;
             break;
 
-          case 16:
-            _context.next = 18;
+          case 17:
+            _context.next = 19;
             return _Role["default"].findOne({
               name: "control"
             });
 
-          case 18:
+          case 19:
             role = _context.sent;
             newUser.roles = [role._id];
 
-          case 20:
-            _context.next = 22;
+          case 21:
+            _context.next = 23;
             return newUser.save();
 
-          case 22:
+          case 23:
             savedUser = _context.sent;
-            console.log(savedUser);
             token = _jsonwebtoken["default"].sign({
               id: savedUser._id
-            }, 'config.SECRET', {
+            }, _config["default"].SECRET, {
               expiresIn: 86400 // 24 horas
 
             });
-            res.status(200).json({
+            return _context.abrupt("return", res.status(200).json({
               token: token
-            });
+            }));
 
-          case 26:
+          case 28:
+            _context.prev = 28;
+            _context.t5 = _context["catch"](0);
+            console.log(_context.t5);
+            return _context.abrupt("return", res.status(500).json(_context.t5));
+
+          case 32:
           case "end":
             return _context.stop();
         }
       }
-    }, _callee);
+    }, _callee, null, [[0, 28]]);
   }));
 
   return function signUp(_x, _x2) {
@@ -150,7 +156,7 @@ var signIn = /*#__PURE__*/function () {
           case 11:
             token = _jsonwebtoken["default"].sign({
               id: userFound._id
-            }, 'config.SECRET', {
+            }, _config["default"].SECRET, {
               expiresIn: 86400 // 24 horas
 
             });

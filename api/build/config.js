@@ -5,6 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = void 0;
 var _default = {
-  SECRET: 'document_api'
+  SECRET: 'documents-api'
 };
 exports["default"] = _default;

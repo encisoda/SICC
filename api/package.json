@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "babel-node": "babel-node --presets=@babel/preset-env",
+    "dev": "nodemon --exec npm run babel-node src/index.js",
     "build": "babel src --out-dir build",
-    "dev": "nodemon src/index.js --exec babel-node",
     "start": "node build/index.js"
+    /*"dev": "nodemon src/index.js --exec babel-node"*/
   },
   "keywords": [],
   "author": "encisoda&JuliSdru",
